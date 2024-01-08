@@ -52,7 +52,8 @@ commentsRoute.put(
     accessTokenValidityMiddleware,
     validateObjectIdMiddleware,
     forbiddenResponseMiddleware,
-    commentValidator,
+    // commentValidator,
+    commentsValidation(),
     responseErrorValidationMiddleware,
     updateComment
 );
