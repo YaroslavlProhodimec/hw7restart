@@ -11,10 +11,27 @@ export const forbiddenResponseMiddleware = async (
   const comment = await commentsCommandsRepository.findCommentById(
     req.params.id
   );
+  // const newComment: any = {
+  //   // id: postId,
+  //   postId:postId,
+  //   content,
+  //   commentatorInfo: {
+  //     userId: id,
+  //     userLogin: foundUser.accountData.login,
+  //   },
+  //   createdAt: createdAt.toISOString()
+  // }
+  // console.log(comment,'comment')
+  // console.log(req.userId,'req.userId')
+  // console.log(comment!.commentatorInfo.userId.toString(),'comment!.commentatorInfo.userId.toString()')
+  // console.log(typeof comment,'comment')
+  // console.log(typeof comment!.commentatorInfo.userId,'commentcommentatorInfo.userId')
+  // console.log( comment!.commentatorInfo.userId.toString() === req.userId,'commentcommentatorInfo.userId .toString() === req.userId' )
+  // console.log(typeof req.userId,'req.userId')
 
   if (!comment) {
     res.sendStatus(StatusCodes.NOT_FOUND);
-  } else if (comment && comment.commentatorInfo.userId !== req.userId) {
+  } else if (comment && comment.commentatorInfo.userId.toString() !== req.userId) {
     res.sendStatus(StatusCodes.FORBIDDEN);
   } else {
     next();

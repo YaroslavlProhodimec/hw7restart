@@ -46,7 +46,7 @@ export const updateComment = async (
     req.params.id,
     content
   );
-  console.log(updatedComment,'updatedComment')
+  console.log(updatedComment,'updatedComment await commentsService.updateCommentById')
 
   if (!updatedComment) {
     res.sendStatus(StatusCodes.NOT_FOUND);

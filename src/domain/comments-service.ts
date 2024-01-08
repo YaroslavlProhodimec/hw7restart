@@ -11,6 +11,7 @@ export const commentsService = {
     commentId: string,
     content: string
   ): Promise<boolean> {
+    console.log(commentId,'commentId')
     const updatedComment = await commentsCommandsRepository.updateComment(
       commentId,
       content
