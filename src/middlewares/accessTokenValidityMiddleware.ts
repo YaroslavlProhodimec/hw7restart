@@ -3,7 +3,7 @@ import { StatusCodes } from "http-status-codes";
 import {jwtService} from "../domain/jwt-service";
 
 export const accessTokenValidityMiddleware = async (
-  req: Request,
+  req: any,
   res: Response,
   next: NextFunction
 ) => {
